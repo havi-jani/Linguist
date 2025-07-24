@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linguist</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=REM:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="static\style.css" />
+  </head>
+  <body>
+    <!-- -----------------Header------------------ -->
+    <section>
+      <div class="header">
+        <div class="row w-100">
+          <div class="col-8 col-md-6">
+            <select name="lang" id="lang" class="form-select">
+              <option hidden>Select Language</option>
+              {% for code , language in message %}
+              <option value={{ language }}>{{ code }}</option>
+              {% endfor %}
+            </select>
+            
+          </div>
+
+          <div class="col-4 col-md-6 text-end">
+            <img
+              src="static\image\User.png"
+              alt="Hostory"
+              width="40"
+              height="40"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#historyOffcanvas"
+              id="historyOffcanvasLabel"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="main-div">
+      <!-- ----------------------Body------------------------- -->
+      <section class="container">
+        <div class="body-section">
+          <div id="mainText"><h1>LINGUIST</h1></div>
+
+          <div class="chat-section" id="chatSection" style="display: none">
+            {{ txt }}
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------Footer--------------------------- -->
+      <section class="container">
+        {% comment %} <form action="/translate/" method="post"> {% endcomment %}
+        {% csrf_token %}
+        <div class="footer">
+          <div class="box-container">
+            <div class="query-container">
+              <textarea rows="2" id="query" name="txt" placeholder="Enter Text.....">
+              </textarea>
+
+              <div id="pdfName" style="display: none; font-weight: bold; padding: 10px 0;"></div>
+            </div>
+
+            <div class="footer-buttons">
+              <div class="dropdown">
+                <img
+                  src="static\image\Upload.png"
+                  alt="upload"
+                  width="40"
+                  height="40"
+                  data-bs-toggle="dropdown"
+                  id="uploadDropdown"
+                />
+
+                <ul class="dropdown-menu" aria-labelledby="uploadDropdown">
+                  {% comment %} <li><a class="dropdown-item" href="#">Audio</a></li> {% endcomment %}
+                  <label for="file" class="dropdown-item" style="cursor: pointer;">Upload Document</label>
+                  <input type="file" name="file" id="file" style="display: none;">
+                </ul>
+              </div>
+              <img
+                src="static\image\Group 2.png"
+                alt="enter"
+                width="40"
+                height="40"
+                id="sendBtn"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+{% comment %} </form> {% endcomment %}
+    <script src="static\script.js"></script>
+
+    <!-- OFFCANVAS Right Side -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="historyOffcanvas"
+      aria-labelledby="historyOffcanvasLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 id="historyOffcanvasLabel">History</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>No recent history found!</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    background: linear-gradient(#ffffff 0%, #6d6d6d 66%, #3b3b3b 100%);
+    display: flex;
+    flex-direction: column;
+    font-family: "ADLaM Display", system-ui;
+  }
+
+  .header {
+    margin-top: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header select {
+    width: 200px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    appearance: none;
+    background-image: url('/static/image/dropdownarrow.png');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 20px;
+  }
+
+  .main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .body-section h1 {
+    text-align: center;
+    font-size: 10vw;
+    background: linear-gradient(#000000 0%, #6e6d6d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 25px 20.1px rgba(0, 0, 0, 0.2);
+  }
+
+  .footer {
+    margin-top: 2%;
+    background-color: #d9d9d9;
+    padding: 1%;
+    border-radius: 10px;
+  }
+
+  textarea {
+    appearance: none;
+    -webkit-appearance: none; 
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+    background-color: transparent;
+    resize: none;
+  }
+
+  textarea:focus {
+    outline: none;
+    border: none;
+  }
+
+  textarea::placeholder {
+    color: black;
+    font-weight: bold;
+  }
+
+  .footer .footer-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+  }
+
+  img {
+    cursor: pointer;
+  }
+
+  .body-section .chat-section {
+    height: 400px;
+    overflow-y: auto;
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .body-section .chat-section::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  img:hover {
+    opacity: 0.8; /* Slight opacity on hover */
+  }
+
+
+  #pdfName{
+    display: none; 
+    font-weight: bold; 
+    padding: 10px 0;
+  }
+
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
